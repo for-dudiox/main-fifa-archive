@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次回到世界杯 · 收藏与持续关注</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+            background: #f4f9fb;
+            color: #1b2d33;
+            line-height: 1.7;
+            padding: 2rem 1rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 880px;
+            width: 100%;
+        }
+
+        /* 标题区 */
+        .hero {
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: #0e4b5c;
+            border-left: 5px solid #2f9aa7;
+            padding-left: 1.2rem;
+        }
+
+        .hero .sub {
+            margin-top: 0.6rem;
+            color: #3f6e7a;
+            font-size: 1rem;
+            font-weight: 350;
+            border-bottom: 1px dashed #b6d7de;
+            padding-bottom: 1rem;
+        }
+
+        /* 网格卡片系统 */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin: 2.4rem 0;
+        }
+
+        @media (min-width: 620px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(2px);
+            border: 1px solid #d1e4e9;
+            border-radius: 20px;
+            padding: 1.8rem 1.6rem;
+            box-shadow: 0 6px 14px rgba(25, 70, 80, 0.04);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: #76b9c4;
+            background: white;
+            box-shadow: 0 12px 20px rgba(28, 85, 96, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #0e4b5c;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .card h3::before {
+            content: "⚽";
+            font-size: 1.2rem;
+            opacity: 0.6;
+        }
+
+        .card p, .card .footnote {
+            font-size: 0.95rem;
+            color: #1f3e47;
+        }
+
+        .card .footnote {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #4b7a87;
+            border-top: 1px solid #daeef3;
+            padding-top: 0.8rem;
+        }
+
+        /* 正文段落 - 有节奏 */
+        .essay {
+            margin: 2rem 0;
+        }
+
+        .essay p {
+            margin-bottom: 1.3rem;
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        .essay .quote-line {
+            background: #e2f0f3;
+            padding: 0.4rem 1.2rem 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-style: normal;
+            color: #115764;
+            font-weight: 380;
+            display: inline-block;
+            margin: 0.2rem 0 0.8rem 0;
+            font-size: 0.95rem;
+        }
+
+        .essay .highlight {
+            background: linear-gradient(120deg, #d3eef3 0%, #d3eef3 40%, transparent 80%);
+            padding: 0 0.2rem;
+        }
+
+        /* 引用 / 提示块 */
+        .callout {
+            background: #e7f3f6;
+            border-left: 6px solid #2f9aa7;
+            padding: 1.4rem 1.8rem;
+            border-radius: 18px;
+            margin: 2.2rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .callout strong {
+            color: #0c4d5a;
+            display: block;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+
+        .callout p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* FAQ 迷你摘要 */
+        .faq-mini {
+            background: #fafdfe;
+            border-radius: 24px;
+            padding: 0.1rem 0;
+            margin: 2.6rem 0 1.8rem 0;
+            border: 1px solid #cde2e8;
+        }
+
+        .faq-item {
+            padding: 1.2rem 1.6rem;
+            border-bottom: 1px solid #d6ebf0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 500;
+            color: #0f5363;
+            margin-bottom: 0.25rem;
+            font-size: 1rem;
+        }
+
+        .faq-a {
+            color: #2b545f;
+            font-size: 0.92rem;
+        }
+
+        /* 访问句 + 链接 */
+        .visit-sentence {
+            background: #ffffffd9;
+            padding: 1.6rem 2rem;
+            border-radius: 40px;
+            margin: 2.2rem 0 1.8rem 0;
+            border: 1px solid #b9d9e2;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            font-size: 1.1rem;
+            text-align: center;
+            backdrop-filter: blur(4px);
+        }
+
+        .visit-sentence a {
+            color: #147385;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #8fcbd7;
+            padding-bottom: 0.1rem;
+            transition: border-color 0.15s, background 0.15s;
+        }
+
+        .visit-sentence a:hover {
+            border-bottom-color: #1b7688;
+            background: #ebf6f9;
+        }
+
+        /* 页脚 */
+        .footer-note {
+            margin-top: 3rem;
+            font-size: 0.8rem;
+            color: #6e9aa7;
+            text-align: center;
+            border-top: 1px solid #cde0e5;
+            padding-top: 2rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #cce2e8;
+            margin: 1.2rem 0;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <!-- hero -->
+    <div class="hero">
+        <h1>再次回到世界杯 · 收藏与持续关注</h1>
+        <div class="sub">一篇安静的笔记，写给那些想一直留在视线里的赛事记忆</div>
+    </div>
+
+    <!-- 导语 / 第一段正文 -->
+    <div class="essay">
+        <p>
+            四年一度的节奏，像潮汐一样准时。但潮水退去之后，总有人选择留下来——不是等待下一次哨声，而是想把关于<a href="https://main-fifa-wc.com" style="color:#147385; text-decoration: underline; text-underline-offset: 3px; font-weight: 500;">世界杯</a>的痕迹、故事和页面，放在一个随时可以打开的地方。
+        </p>
+        <p>
+            也许你和我一样，在某个深夜用手机快速浏览过小组赛积分，也曾在咖啡凉的间隙收藏过一篇战术分析。但后来呢？链接沉入收藏夹深处，赛程表变成了过期文件。这一次，不如换一种方式：<span class="highlight">不是看完就忘，而是找到一处可以反复回来的位置</span>。
+        </p>
+        <div class="quote-line">“收藏不只是保存，是承认这段内容值得再次相遇。”</div>
+    </div>
+
+    <!-- 网格卡片：特点与场景 -->
+    <div class="grid">
+        <div class="card">
+            <h3>持续关注</h3>
+            <p>不需要每次重新搜索。赛前前瞻、赛后复盘、球员档案……如果有一个页面能安静地留在书签栏，你会更自然地保持连接。</p>
+            <div class="footnote">→ 适合赛区间隔期的温和陪伴</div>
+        </div>
+        <div class="card">
+            <h3>再次访问</h3>
+            <p>浏览器历史记录总会淹没日常信息。为重要赛事单独留一个入口，等于为记忆设置了一个伏笔——你随时可以回来，不必从头找起。</p>
+            <div class="footnote">→ 尤其适合手机浏览器标签页</div>
+        </div>
+    </div>
+
+    <!-- 第二段正文：从收藏到习惯 -->
+    <div class="essay">
+        <p>
+            我认识一个朋友，每次大赛结束后会把主站链接放在手机主屏幕。他说那不是因为每时每刻都需要看，而是“想让自己记得：有一扇门开着”。<span class="highlight">收藏一个网址，有时是收藏一种随时可以进入的状态</span>——哪怕只是偶尔点开，看看版面有没有更新，也算一种安静的在场。
+        </p>
+        <p>
+            这也是为什么我觉得，与其在社交媒体的信息流里被动接收片段，不如给自己一个固定的锚点。不需要登录，不需要推送，只要你愿意，就能回到那个页面。
+        </p>
+    </div>
+
+    <!-- 提示引用块 -->
+    <div class="callout">
+        <strong>📌 一个小小的提醒</strong>
+        <p>如果你已经很久没有打开那个关于世界杯的书签，也许不是因为忘记，而是因为缺少一个“再次访问”的理由。<br>现在，或许就是那个理由自然浮现的时刻。</p>
+    </div>
+
+    <!-- FAQ 摘要 (简洁) -->
+    <div class="faq-mini">
+        <div class="faq-item">
+            <div class="faq-q">页面会频繁更新内容吗？</div>
+            <div class="faq-a">视赛事节奏保持适度更新，但不会制造信息噪音。更适合安静关注的人。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">怎样最快找到这个页面？</div>
+            <div class="faq-a">添加书签或保存至主屏幕。用「世界杯」作为书签名称，一目了然。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">移动端浏览体验如何？</div>
+            <div class="faq-a">页面针对手机屏幕调整过字间距和卡片尺寸，单手操作友好。</div>
+        </div>
+    </div>
+
+    <!-- 访问句(自然嵌入链接) -->
+    <div class="visit-sentence">
+        <span>若你愿意，不妨将 <a href="https://main-fifa-wc.com">世界杯</a> 放入浏览器的书签栏或收藏夹。<br>下次想再被那种气氛包围时，它还在那里。</span>
+    </div>
+
+    <!-- 收束段落 -->
+    <div class="essay" style="margin-top: 0.2rem;">
+        <p>
+            写到这里，我想起一句不算名言的话：“持续关注，有时是对一件事最朴素的尊重。” 不需要太用力，也不需要太多承诺。<span class="highlight">把链接留在手边，就是一种态度</span>。如果某天你再次打开它，看到熟悉的版式和新的文字，希望你能感到：这段关于世界杯的叙事，始终为你留着位置。
+        </p>
+    </div>
+
+    <hr>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>⚽ 一篇安静的页面 · 献给愿意再次打开的人</span>
+    </div>
+</div>
+</body>
+</html>
